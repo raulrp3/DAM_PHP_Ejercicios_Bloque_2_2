@@ -11,11 +11,19 @@
         $year = date('Y') + 1;
         $birthday = new DateTime($year.'-05-18');
         $now = new DateTime('now');
+        list($year, $month, $day) = explode('-', '1997-05-18');
 
         $diff = $now->diff($birthday);
+        $yearDiff = date('Y') - $year;
+        $monthDiff = date('m') - $month;
+        $dayDiff = date('d') - $day;
+
+        if((($dayDiff < 0) && ($monthDiff == 0)) || ($monthDiff < 0)){
+            $yearDiff--;
+        }
 
         echo '<p>Quedan '.$diff->format('%a').' días para tu cumpleaños.</p>';
-        echo '<p>Tu cumpleaños es '.$birthday->format('d-m-Y').'.</p>';
+        echo '<p>Tengo '.$yearDiff.' años, '.$monthDiff.' meses, '.$dayDiff.' días.</p>';
     ?>
 </body>
 </html>
