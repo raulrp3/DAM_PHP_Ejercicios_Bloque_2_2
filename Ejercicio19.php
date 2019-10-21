@@ -11,6 +11,8 @@
         $year = date('Y') + 1;
         $birthday = new DateTime($year.'-05-18');
         $now = new DateTime('now');
+
+        
         list($year, $month, $day) = explode('-', '1997-05-18');
 
         $diff = $now->diff($birthday);
